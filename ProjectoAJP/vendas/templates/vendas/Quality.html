@@ -1,0 +1,299 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css"
+href="{% static 'vendas/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <header class="menu-principalBarraPreta">
+    <main>
+        <nav class="logo">
+                <a href="{% url 'vendas:index' %}"><img src="../../static/vendas/imagens/trust-japanesevehicles-logo.png" alt="JaponeseVechicles.pt"
+                width="100" height="70"></a>
+        </nav>
+
+        <nav class=" redes-sociais">
+            <ul>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/rcss.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                <a href="https://www.facebook.com/JapaneseVehicles"><img src="../../static/vendas/imagens/facebook.jpg" alt="" width="20" height="20"></a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/twiter.png"alt="" width="20" height="20" ></a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/linkedin.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/instagram.png" alt="" width="20" height="20"> </a>
+                </li>
+                <br />
+                <font color="#fff">
+                EMAIL:sales@japcar.com
+                <br/>
+                TEL:+351-222-219-245
+                <br/>
+                <form action="{% url 'vendas:paginalogin' %}" method="post">
+                {% csrf_token %}
+                Já és membro?:<input type="submit" value="Fazer Login"/>
+                </form>
+                <form action="{% url 'vendas:paginaregisto' %}" method="post">
+                {% csrf_token %}
+                Não és membro?:<input type="submit" value="Fazer Registo"/>
+                </form>
+
+                {% if sucesso %}
+                <font color="#fff">
+                <p>{{sucesso}}</p>
+                {% endif %}
+                </font>
+                </font>
+            </ul>
+        </nav>
+    </main>
+    </header>
+    <br>
+
+        <nav class="menus">
+            <nav class = "menu">
+                <ul>
+                    <li><a href="{% url 'vendas:index' %}">HOME</a></li>
+                    <li><a href="{% url 'vendas:StoqueCarro' %}">Stocklist</a> </li>
+                    <li><a href="{% url 'vendas:about_us' %}">About us</a> </li>
+                    <li><a href="{% url 'vendas:how_to_buy' %}">How to buy</a> </li>
+                    <li><a href="{% url 'vendas:quality' %}">Quality</a> </li>
+                    <li><a href="{% url 'vendas:contact_us' %}">Contact us</a> </li>
+                    <li><a href="{% url 'vendas:Administrador' %}">Administrador</a> </li>
+                    <li><a href="{% url 'vendas:utilizador' %}">Utilizador</a> </li>
+                </ul>
+            </nav>
+        </nav>
+
+        <nav class="busca">
+            <ul>
+                {% for vendas in latest_vendas_list %}
+
+                {% endfor %}
+                <form action="{% url 'vendas:pesquisa'%}" method="post">
+                {% csrf_token %}
+                <p>Procura por marca: <input type="text" name="marca"> <input type="submit" value="Pesquisar" /></p>
+
+                </form>
+            </ul>
+        </nav>
+        <br/>
+
+        <br/>
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Inspecções e verificações de qualidade dos veículos usados.</li><br/>
+            </ul>
+        </nav>
+        <br/>
+
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/inspection-team.jpg" alt="inspection-team.pt" width="200"
+            height="200">
+            <figcaption>Trust Company Ltd. Equipe de inspeção</figcaption>
+        </nav>
+            <p>Cada viatura de segunda mão vem em condições diferente. Na Trust Company Ltd., como o nosso nome <br />
+            sugere,(Confiança) nós acreditamos que é importante que os nossos clientes saibam tudo sobre nossos <br />
+            veículos. É por isso que nós listamos qualquer questão relevante na secção "Observações" de cada veículo.<br />
+            <p>Nossa equipe de inspetores experientes e certificadas pelo governo japonês está aqui para realizar uma <br />
+            inspeção completa em cada veículo. Certificando-se de descobrir qualquer questão que proporcionará a <br />
+            melhor qualidade possível, e dar uma nova vida a todos os nossos veículos. <br />
+            Você pode entender mais sobre o nossa inspeção aqui abaixo. Estamos confiantes que você vai apreciar a <br />
+            nossa qualidade ainda mais depois de receber seu veículo. <br />
+            <br/>
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Controlo de Qualidade dos Viaturas</li><br/><br/>
+            </ul>
+            <img src="../../static/vendas/imagens/qcheck1-s.jpg" alt="qcheck1-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck2-s.jpg" alt="qcheck2-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>Motor</strong>
+            <p>Nós verificamos o motor e a transmissão de cada veículo para garantir que tudo está em ordem. As funções do motor e as luzes <br />
+            são checadas com ferramentas de diagnóstico. Nossa inspeção também inclui sistema de refrigeração, níveis de fluidos, correias <br />
+            e mangueiras, etc. <br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck3-s.jpg" alt="qcheck3-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck4-s.jpg" alt="qcheck4-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>EXTERIOR E INTERIOR</strong>
+            <p>O exterior de cada veículo é verificado, arranhões e outros danos. <br />
+            Danos que comprometem a confiabilidade e segurança dos veículos são fixos. Nós também verificar equipamentos e ferramentas <br />
+            interior e verificar se tudo está funcionando corretamente. <br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck5-s.jpg" alt="qcheck5-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck6-s.jpg" alt="qcheck6-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>DIREÇÃO E FRENAGEM</strong>
+            <p>Os sistemas de direção e freio são vitais para a segurança do veículo. É por isso que uma verificação completa e detalhada é <br />
+            realizada e todos os reparos necessários são realizados para proporcionar uma condução segura e confiável.<br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck7-s.jpg" alt="qcheck7-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck8-s.jpg" alt="qcheck8-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>SISTEMA ELÉTRICO</strong>
+            <p>Temos certeza de que todo o sistema elétrico, como a bateria, luzes, limpadores, interruptores e controles elétricos estão <br />
+            funcionando. Nós arrumamos ou substituimos qualquer elemento julgado problemático para a operação adequada do veículo.<br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck9-s.jpg" alt="qcheck9-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck10-s.jpg" alt="qcheck10-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>Chassis</strong>
+            <p>Todos os nossos veículos são verificados em rampas para verificar se há ferrugem, corrosão,problemas nas articulações e <br />
+            qualquer vazamento de água, óleo ou combustível. Nossas rampas estão equipadas com iluminação especialmente projetada <br />
+            para ver qualquer problema. <br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck11-s.jpg" alt="qcheck11-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck12-s.jpg" alt="qcheck12-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>LIMPEZA</strong>
+            <p>Todos os nossos veículos são muito bem lavados antes de inspecionardos,chacamos os chassis e o exterior para verificar <br />
+            qualquer possível problema.<br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck13-s.jpg" alt="qcheck13-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck14-s.jpg" alt="qcheck14-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>PNEUS</strong>
+            <p>Nós medimos a profundidade dos pneus para substituí-los quando necessário. Os pneus também são verificados se possuem <br />
+            rachaduras e danos nas rodas, porcas das rodas e parafusos.<br />
+            <br>
+            <img src="../../static/vendas/imagens/qcheck15-s.jpg" alt="qcheck15-s.pt" width="200"
+            height="200">
+            <img src="../../static/vendas/imagens/qcheck16-s.jpg" alt="qcheck16-s.pt" width="200"
+            height="200">
+            <br>
+            <strong>ASSENTO E LIMPEZA</strong>
+            <p>Nós fazemos o nosso melhor para tornar o interior de cada veículo o mais limpo possível.</p><br />
+            Nós também limpamos com equipamento profissional sempre que notamos qualquer mancha ou cheiro desagradavél.<br />
+            <br>
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Equipe de mecânicos experientes certificados pelo governo japonês</li><br/><br/>
+            </ul>
+
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/mechanic-licence-certificate.jpg" alt="mechanic-licence-certificate.pt" width="200"
+            height="150">
+            </nav>
+            <p>Todos os membros da nossa equipe de inspeção possuem licença oficial emitida pelo governo japonês.</p>
+            <p>Esta licença oficial exige vários testes a serem passados, bem como uma sólida experiência como mecânico, <br />
+            certificando que a nossa equipe tem todas as habilidades,capacidade e experiência necessárias para <br />
+            efectuar as inspecções adequadas.<br />
+            <p>Ter uma equipe de mecânicos certificados é realmente importante para nós para garantir a qualidade e <br />
+            confiabilidade dos veículos usados que vendemos.<br />
+            <br>
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Sistema de classificação de veículos</li><br/><br/>
+            </ul>
+                <p>Todos os veículos exportados pela Trust Company Ltd estão sujeitos a Inspecção de Controlo de Qualidade padronizada para garantir a qualidade do veículo.<br />
+                As inspecções são efectuadas à chegada no veículo ao nosso centro. Cada veículo é classificado, de acordo com o sistema<br />
+                de classificações de veículos da Trust Company Ltd, e imagens são então obtidas para exibição na nossa página.<br />
+                <br>
+        </nav>
+
+        <nav class="dados_centro">
+            <p>Classe:Qualidade superior <img src="../../static/vendas/imagens/grade-5.png" alt="grade-5.pt" width="50"
+            height="20"></p>
+            <strong>A melhor qualidade para veículos usados.</strong>
+            <p>Excelentes condições. Interior limpo, sem praticamente riscos visíveis, mecânica sonora. <br />
+            Apenas os veículos de melhor qualidade estão listados nesta categoria. <br />
+            <br>
+            <p>Classe:Truat - Recomendada<img src="../../static/vendas/imagens/grade-4.png" alt="grade-4.pt" width="50"
+            height="20"></p>
+            <strong>Melhor Equilíbrio entre qualidade e preço.</strong>
+            <p>Condições muito boas. Sem problemas mecânicos ou eléctricos. Sem danos relevantes na <br />
+            estrutura. Estes veículos representam a melhor qualidade Truste que os nossos clientes estão <br />
+            habituados. <br />
+            <br>
+            <p>Classe:Trust - Económicos<img src="../../static/vendas/imagens/grade-3.png" alt="grade-3.pt" width="50"
+            height="20"></p>
+            <strong>BARATO E DE CONFIAÇA.</strong>
+            <p>Veículos seguros. Viaturas confiáveis, mas reparos no interior e exterior são mantidos ao <br />
+            mínimo.<br />
+        </nav>
+        <br>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Todos os veículos de Trust Company estão Protegidos de Radiação</li><br/><br/>
+            </ul>
+            <p>Nós temos vindo a receber perguntas de clientes preocupados com os níveis de radiação dos nossos veículos no seguimento o acidente nuclear de Fukushima em Março <br />
+            de 2011. Ao mesmo tempo que percebemos que os nossos clientes se preocupam com este assunto, gostaríamos de tornar claro que todos os nossos veículos são <br />
+            submetidos a testes de radiações antes de serem carregados no nosso website para assegurar a segurança de todas as pessoas envolvidas no manuseamento dos <br />
+            mesmos. Para evitar quaisquer confusões respeitantes aos níveis de radiação, decidimos responder abaixo a algumas perguntas básicas que os nossos clientes possam <br />
+            ter. <br />
+            <strong>Perguntas e Respostas sobre automóveis e radiação</strong>
+
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/radiation-inspection-300.jpg" alt="radiation-inspection.pt" width="200"
+            height="200">
+            <figcaption>Todos os veículos são inspecionados por radiação</figcaption>
+        </nav>
+
+            <strong>P: Existe algum risco de radiação na área onde a Trust Company está localizada?</strong>
+            <p>R: Os níveis de radiação locais aqui em Nagoya estão normais. Encontramo-nos muito longe do reator nuclear de <br />
+            Fukushima onde ocorreram os incidentes.
+            <br>
+            <strong>P: Os veículos da Trust Company são inspecionados por radiação?</strong>
+            <p>R: Todos os nossos veículos usados japoneses são verificados por radiação assim que entram no nosso espaço (antes <br />
+            de começarmos quaisquer preparativos para carregar o veículo no website). Esta inspeção é feita para assegurar a total <br />
+            segurança do nosso staff, do pessoal que manuseia a mercadoria e dos clientes que recebem os veículos. <br />
+            <br>
+            <strong>P: Quem inspeciona os veículos por radiação assim que entram no espaço da Trust Company?</strong>
+            <p>R: Para os automóveis em Nagoya, a inspeção é feita pela "Japan Cargo Tally Corporation".A: For cars in Nagoya, the <br />
+            inspection is performed by Japan Cargo Tally Corporation. <br />
+            <br>
+
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/inspection-tally-300.jpg" alt="inspection-tally.pt" width="200"
+            height="200">
+            <figcaption>Apenas os automóveis seguros são permitidos no
+            nosso stock </figcaption>
+        </nav>
+
+            <strong>P: O que acontece aos veículos que não passam na inspeção?</strong>
+            <p>R: Todos os veículos que não passam na inspeção são imediatamente removidos do nosso espaço. Nós livramo-nos <br />
+            deles e eles não entram no nosso stock. <br />
+            <br>
+            <strong>P: Podem fornecer um documento para certificar que o veículo está Protegido de Radiação?</strong>
+            <p>R: Mediante pedido, nós fornecemos um "Certificado de Inspeção e Seguranca de Perigo Radiológico" pelo JEVIC <br />
+            JEVIC (Japan Export Vehicle Inspection Center). O certificado custa US$100.<br />
+            <br>
+            <strong>P: Como posso eu confiar na Trust Company?</strong>
+            <p>R: A Trust Company exporta automóveis usados japoneses desde 1988. Nós somos membros da JUMVEA e da Câmara <br />
+            de Comércio de Nagoya. A nossa empresa é a única exportadora de automóveis usados listada na Bolsa de Tóquio.<br />
+            <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/jevic-certificate-300.jpg" alt="jevic-certificate.pt" width="200"
+            height="200">
+            <figcaption>Certificado do JEVIC disponível mediante solicitação
+            (US$100) </figcaption>
+
+            </nav>
+        </nav>
+

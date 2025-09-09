@@ -1,0 +1,301 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css"
+href="{% static 'vendas/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <header class="menu-principalBarraPreta">
+    <main>
+        <nav class="logo">
+        <a href="{% url 'vendas:index' %}"><img src="../../static/vendas/imagens/trust-japanesevehicles-logo.png" alt="JaponeseVechicles.pt"
+        width="100" height="70"></a>
+        </nav>
+
+        <nav class=" redes-sociais">
+            <ul>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/rcss.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                <a href="https://www.facebook.com/JapaneseVehicles"><img src="../../static/vendas/imagens/facebook.jpg" alt="" width="20" height="20"></a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/twiter.png"alt="" width="20" height="20" ></a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/linkedin.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/instagram.png" alt="" width="20" height="20"> </a>
+                </li>
+            <br />
+                <font color="#fff">
+                EMAIL:sales@japcar.com
+                <br/>
+                TEL:+351-222-219-245
+                <br/>
+                <form action="{% url 'vendas:paginalogin' %}" method="post">
+                {% csrf_token %}
+                Já és membro?:<input type="submit" value="Fazer Login"/>
+                </form>
+                <form action="{% url 'vendas:paginaregisto' %}" method="post">
+                {% csrf_token %}
+                Não és membro?:<input type="submit" value="Fazer Registo"/>
+                </form>
+
+                {% if sucesso %}
+                <font color="#fff">
+                <p>{{sucesso}}</p>
+                {% endif %}
+                </font>
+                </font>
+            </ul>
+        </nav>
+    </main>
+    </header>
+    <br>
+
+        <nav class="menus">
+            <nav class = "menu">
+                <ul>
+                    <li><a href="{% url 'vendas:index' %}">HOME</a></li>
+                    <li><a href="{% url 'vendas:StoqueCarro' %}">Stocklist</a> </li>
+                    <li><a href="{% url 'vendas:about_us' %}">About us</a> </li>
+                    <li><a href="{% url 'vendas:how_to_buy' %}">How to buy</a> </li>
+                    <li><a href="{% url 'vendas:quality' %}">Quality</a> </li>
+                    <li><a href="{% url 'vendas:contact_us' %}">Contact us</a> </li>
+                    <li><a href="{% url 'vendas:Administrador' %}">Administrador</a> </li>
+                    <li><a href="{% url 'vendas:utilizador' %}">Utilizador</a> </li>
+                </ul>
+            </nav>
+        </nav>
+
+        <nav class="busca">
+                <ul>
+                    {% for vendas in latest_vendas_list %}
+
+                    {% endfor %}
+                    <form action="{% url 'vendas:pesquisa'%}" method="post">
+                    {% csrf_token %}
+                    <p>Procura por marca: <input type="text" name="marca"> <input type="submit" value="Pesquisar" /></p>
+
+                    </form>
+                </ul>
+        </nav>
+        <br/>
+        <br/>
+
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>5 Passos Simples para Comprar um Veículo</li><br/><br/>
+            </ul>
+            <br/>
+                <img src="../../static/vendas/imagens/01.gif" alt="01.pt" width="200"
+                 height="200">
+                <br>
+                <strong>1: Seleccionar o seu veículo.</strong>
+                <p>Descubra o melhor veículo Japonês para si através da nossa função de pesquisa ou a partir dos nossos catálogos <br />
+                para descarregamento.<br />
+                Uma vez descoberto o carro desejados, verifique os seus detalhes e imagens.<br />
+                Use função de cotação para verificar imediatamente o custo total do Japão até ao seu País. (Oferta online indisponível <br />
+                em algumas combinações de veículo/pais).</p>
+                <br>
+                <img src="../../static/vendas/imagens/02.gif" alt="02.pt" width="200"
+                 height="200">
+                <br>
+                <strong>2: Obtenha uma factura gratuita e encomende o veículo.</strong>
+                <p>Peça uma factura de um carro usado do nosso stock: é fácil e gratuito.<br />
+                Introduza os seus detalhes e iremos enviar-lhe por email uma factura numa hora.<br />
+                Se decidir comprar, contacte-nos para que lhe possamos reservar o seu veículo antes que alguém o compre.<br />
+                <br/>
+                    <li><a href="{% url 'vendas:how_to_buy' %}">Opções de Garantia</a></li>
+                    <li><a href="{% url 'vendas:how_to_buy' %}">Opção de Inspecção Pré-Envio</a></li>
+                    <li><a href="{% url 'vendas:how_to_buy' %}">Opções Áudio</a></li>
+                <br>
+                <img src="../../static/vendas/imagens/03.gif" alt="03.pt" width="200"
+                 height="200">
+                <br>
+                <strong>3: Termine o pagamento.</strong>
+                <p>Termine o pagamento por Transferência bancária, a partir de qualquer banco. Podem também pagar através do <br />
+                Sistema Paypal.<br />
+                Depois de ter terminado o pagamento envie-nos uma cópia da sua Transferência como prova de pagamento.<br />
+                Quando o pagamento chegar, iremos enviar-lhe uma confirmação por email.<br />
+                <br/>
+                  <br>
+                <img src="../../static/vendas/imagens/04.gif" alt="04.pt" width="200"
+                 height="200">
+                <br>
+                <strong>4: O seu veículo foi enviado.</strong>
+                <p>Depois de ter recebido o pagamento na totalidade, iremos iniciar imediatamente o processo de exportação para o <br />
+                primeiro navio disponível.<br />
+                Pode seguir o estado do seu envio acedendo à sua página de conta, a qualquer altura.<br />
+                Iremos enviar-lhe os documentos para si ou para o seu agente por correio DHL poucos dias depois do navio partir do <br />
+                Japão.</p>
+                <br>
+                <img src="../../static/vendas/imagens/05.gif" alt="05.pt" width="200"
+                 height="200">
+                <br>
+                <strong>5: Levantamento do seu veículo.</strong>
+                <p>Assim que receber os documentos, poderá iniciar o levantamento e registo do veículo no seu país.<br />
+                Um agente alfandegário poderá ajudá-lo a terminar o processo e disponibilizar-lhe indicações nas taxas a pagar.<br />
+                Termine o procedimento e conduza o seu veículo daí para fora!<br />
+                <br/>
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Pacote Premium</li><br/><br/>
+            </ul>
+                <img src="../../static/vendas/imagens/premium-package-stock-big-EN.png" alt="premium-package.pt" width="1000"
+                    height="200">
+                <p>O pacote Premium é um plano de benefícios especial disponível apenas para os melhores veículos.<br />
+                Compre um carro com pacote Premium para assegurar a máxima segurança e fiabilidade.<br />
+                Com o pacote Premium tem direito a:<br />
+                <br/>
+
+            <nav class="dados_direita">
+                <img src="../../static/vendas/imagens/pp2.png" alt="pp2.pt" width="100"
+                    height="100">
+                <p>Todas as reparações mecânicas feitas com peças genuínas.<br />
+                Fazemos verificações mecânicas de rodonavegabilidade em 37 <br />
+                elementos exigidas anualmente por lei no Japão e reparamos o seu <br />
+                carro após a inspeção, se necessário. <br />
+            </nav>
+
+                <img src="../../static/vendas/imagens/pp1.png" alt="pp1.pt" width="100"
+                    height="100">
+                <p>Garantia para avarias mecânicas de até 3 meses da chegada ao <br />
+                porto ou até 6,000 km. O seu veículo é coberto pela garantia Trust'.<br />
+                Clique aqui para mais detalhes sobre a garantia.<br />
+                <br/>
+                <br>
+
+            <nav class="dados_direita">
+                <img src="../../static/vendas/imagens/pp4.png" alt="pp4.pt" width="100"
+                    height="100">
+                <p>Mudança de óleo do motor, filtro de óleo, filtro de ar e filtro de <br />
+                AC. Os filtros e o óleo são mudados por precaução. Utilizamos óleo <br />
+                do fabricante de alta qualidade.<br />
+                <br/>
+            </nav>
+
+                <img src="../../static/vendas/imagens/pp3.png" alt="pp3.pt" width="100"
+                    height="100">
+                <p>Quatro pneus novos montados. Pneus de marca com qualidade <br />
+                são montados no lugar dos antigos, que são descartados.<br />
+                <br/>
+                <br/>
+
+            <nav class="dados_direita">
+                <img src="../../static/vendas/imagens/pp7.png" alt="pp7.pt" width="100"
+                    height="100">
+                <p>Chaveiro personalizado com seu nome<br />
+                <br/>
+            </nav>
+
+                <img src="../../static/vendas/imagens/pp5.png" alt="pp5.pt" width="100"
+                    height="100">
+                <p>Chave extra enviada por Air Courier. A chave extra é-lhe enviada <br />
+                através de Air Courier, de forma segura e rápida. Se o veículo tiver <br />
+                apenas uma chave, faremos uma chave nova equivalente à chave <br />
+                principal original. <br />
+                <br/>
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Opções de garantia de transporte</li><br/><br/><br/>
+            </ul>
+            <p>Você pode escolher entre duas garantias para a transporte de seu veículo: Garantia Extendida e Garantia Básica.<br />
+            Sugerimos que Garantia Estendida para proteção adicional contra roubo e danos que possam ocorrer durante o transporte ou no porto de destino.<br />
+            <br/>
+            <img src="../../static/vendas/imagens/shipping-warranties-comparison-2EN.png" alt="shipping-warranties.pt" width="400"
+             height="400">
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Trust Certificado de Inspeção</li><br/><br/><br/>
+            </ul>
+            <nav class="dados_direita">
+                <img src="../../static/vendas/imagens/trust-inspection-certificate.png" alt="trust-inspection.pt" width="250"
+                    height="200">
+            </nav>
+            <p>O Certificado de Inspeção da Trust Company é um documento oficial em Inglês que certifica <br />
+            os resultados de nossa inspeção do veículo.<br />
+            Os Pontos de verificação são: motor, óleo, água, eixos de transmissão, transmissão, painéis <br />
+            exteriores, janelas, pintura, pneus, interior e outras áreas. <br />
+            Iremos enviar-lhe o certificado juntamente com os outros documentos de expedição para o seu <br />
+            carro. <br />
+            Para solicitar o Certificado de Inspeção, marque em "Extras e opções" ao solicitar uma factura <br />
+            pró-forma para o veículo. <br />
+            O Certificado de Inspeção da Trust custa US $ 50. <br />
+            <br/>
+            <br>
+        </nav>
+
+        <nav class="dados_esquerda_2">
+            <ul>
+                <li>Escolha a melhor Opção Áudio para o seu carro</li><br/><br/><br/>
+            </ul>
+            <strong>Actualização do sistema de estéreo original</strong>
+            <br>
+            <img src="../../static/vendas/imagens/stereo-upgrade.png" alt="stereo-upgrade.pt" width="300"
+             height="200">
+            <p>US$ 60<br />
+            Verificação do áudio do carro e instalação de um expansor de banda para corresponder à frequência FM na sua área.<br />
+            <br/>
+            <br>
+            <strong>Leitor de MP3/USB/rádio básico (sem CD)</strong>
+            <br>
+            <img src="../../static/vendas/imagens/basic-mp3-player.png" alt="basic-mp3-player.pt" width="300"
+             height="200">
+            <p>US$ 150<br />
+            USB media player. Conexão AUX-IN, rádio AM / FM. MP3, WMA.<br />
+            Porta USB (frontal), Aux-In (frontal 3,5 milímetros minijack), Volume rotativo. <br />
+            Menu em Inglês <br />
+            Não reproduz CDs. <br />
+            <br/>
+            <br>
+            <strong>Leitor CD/USB nove</strong>
+            <br>
+            <img src="../../static/vendas/imagens/CD-player.png" alt="CD-player.pt" width="300"
+             height="200">
+            <p>US$ 250<br />
+            Leitor de CD com porta USB frontal, ligação AUX-IN, rádio AM / FM. Compatível com CD, CD-R/RW, MP3, WMA, WAV, <br />
+            Android Media, MOSFET 50 W x 4 alta potência. Porta USB (frontal), Aux-In (frontal 3,5 milímetros minijack), Volume rotativo, Fachada removível. <br />
+            Menu em Inglês, Manual multilingue. <br />
+            Fachada removível entregue pelo correio ao Cliente. <br />
+            <br/>
+            <br>
+            <strong>Leitor de CD/USB/rádio de alta qualidade com Bluetooth + pen USB (16GB)</strong>
+            <br>
+            <img src="../../static/vendas/imagens/CD-BT-usb.png" alt="CD-BT-usb.pt" width="300"
+             height="200">
+            <p>US$ 360<br />
+            Leitor de CD com porta USB frontal, Controle remoto, Controle direto do iPod / iPhone, Conexão AUX-IN, Rádio AM / FM. Bluetooth Integrado. <br />
+            Compatível com CD, CD-R/RW, MP3, WMA, WAV, Android Media, MOSFET 50 W x 4 alta potência. Porta USB (frontal), Aux-In (frontal 3,5 <br />
+            milímetros minijack), Volume rotativo, Fachada removível. <br />
+            Controle remoto, Menu em Inglês, Manual multilingue. <br />
+            Fachada removível e Chave USB entregue pelo correio para ao Cliente. <br />
+            <br/>
+            <br>
+            <strong>Leitor DVD/CD novo</strong>
+            <br>
+            <img src="../../static/vendas/imagens/DVD-player.png" alt="DVD-player.pt" width="300"
+             height="200">
+            <p>US$ 650<br />
+            1-Din DVD Multimedia Receiver AV com 7 Display VGA e Controle Direto para iPod / iPhone. Rádio AM / FM.<br />
+            Compatible DVD, CD, CD-R/RW, MP3, WMA, WAV, DivX/MPEG-1/2. Aux-In, Porta USB (traseira), Volume rotativo, Fachada removível.<br />
+            Menu em Inglês, Manual multilingue. <br />
+            Fachada removível entregue pelo correio ao Cliente. <br />
+            <br/>
+            <br>
+            <p>NOTA para todos os novos rádios:</p>
+            <p>No caso de indisponibilidade temporária de um modelo de rádio específico, reservamo-nos no direito de instalar outro de valor e especificações semelhantes, sem aviso <br />
+            prévio. <br />
+            A instalação de um novo sistema de áudio irá desativar a câmera traseira. <br />
+            </p>
+        </nav>
+

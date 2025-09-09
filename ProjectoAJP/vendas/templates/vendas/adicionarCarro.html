@@ -1,0 +1,71 @@
+{% load static %}
+<style type="text/css">
+            body {background-color:lightBlue;}
+            p {color:blue;}
+
+
+form {
+  width:300px;
+  margin: 20px auto;
+}
+
+input {
+  border:1px solid #ccc;
+  font-size:20px;
+  width:300px;
+  min-height:30px;
+  display:block;
+  margin-bottom:15px;
+  margin-top:5px;
+  outline: none;
+}
+
+input[type=submit] {
+  background:none;
+  padding:10px;
+}
+</style>
+
+     <footer>
+        <p align="center">
+            DADOS DO CARRO
+        </p>
+
+    </footer>
+
+
+    <form method="post" enctype="multipart/form-data" action="{% url 'vendas:simple_upload' %}">
+        {% csrf_token %}
+        <label>Marca:</label>
+          <input type="text" id="marca" name="marca" placeholder="" required>
+
+          <label>Modelo:</label>
+          <input type="modelo" id="modelo" name="modelo" required
+           oninput="check(this)">
+
+          <label>Matricula:</label>
+          <input type="matricula" id="matricula" name="matricula" required>
+
+          <label>Ano Fabrico:</label>
+          <input type="ano_fabrico" id="ano_fabrico" name="ano_fabrico" required
+           oninput="check(this)">
+
+          <label>Distancia Percorrida:</label>
+          <input type="distancia_percorrida" id="distancia_percorrida" name="distancia_percorrida" required>
+
+          <label>Preço:</label>
+          <input type="preco" id="preco" name="preco" required>
+
+          <input type="file" name="myfile">
+
+        <input type="submit" value="Upload">
+    </form>
+
+
+
+    {% if uploaded_file_url %}
+        <p>File uploaded at:
+        <a href="{{ uploaded_file_url }}">
+        {{ uploaded_file_url }}</a>
+        </p>   {% endif %}   <p>
+        <a href="{% url 'vendas:index' %}">Return to home</a></p>

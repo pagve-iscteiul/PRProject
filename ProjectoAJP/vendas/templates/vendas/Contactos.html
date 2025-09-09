@@ -1,0 +1,378 @@
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css"
+      href="{% static 'vendas/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <header class="menu-principalBarraPreta">
+        <main>
+        <nav class="logo">
+            <a href="{% url 'vendas:index' %}"><img src="../../static/vendas/imagens/trust-japanesevehicles-logo.png" alt="JaponeseVechicles.pt"
+                                                    width="100" height="70"></a>
+        </nav>
+        <nav class=" redes-sociais">
+            <ul>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/rcss.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/JapaneseVehicles"><img src="../../static/vendas/imagens/facebook.jpg" alt="" width="20" height="20"></a>
+                </li>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/twiter.png"alt="" width="20" height="20" ></a>
+                </li>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/linkedin.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/instagram.png" alt="" width="20" height="20"> </a>
+                </li>
+                <br />
+                <font color="#fff">
+                EMAIL:sales@japcar.com
+                <br/>
+                TEL:+351-222-219-245
+                <br/>
+                <form action="{% url 'vendas:paginalogin' %}" method="post">
+                    {% csrf_token %}
+                    Já és membro?:<input type="submit" value="Fazer Login"/>
+                </form>
+                <form action="{% url 'vendas:paginaregisto' %}" method="post">
+                    {% csrf_token %}
+                    Não és membro?:<input type="submit" value="Fazer Registo"/>
+                </form>
+
+                    {% if sucesso %}
+                    <font color="#fff">
+                    <p>{{sucesso}}</p>
+                    {% endif %}
+                    </font>
+                </font>
+            </ul>
+        </nav>
+    </main>
+    </header>
+        <br>
+
+    <nav class="menus">
+                <nav class = "menu">
+                    <ul>
+                        <li><a href="{% url 'vendas:index' %}">HOME</a></li>
+                        <li><a href="{% url 'vendas:StoqueCarro' %}">Stocklist</a> </li>
+                        <li><a href="{% url 'vendas:about_us' %}">About us</a> </li>
+                        <li><a href="{% url 'vendas:how_to_buy' %}">How to buy</a> </li>
+                        <li><a href="{% url 'vendas:quality' %}">Quality</a> </li>
+                        <li><a href="{% url 'vendas:contact_us' %}">Contact us</a> </li>
+                        <li><a href="{% url 'vendas:Administrador' %}">Administrador</a> </li>
+                         <li><a href="{% url 'vendas:utilizador' %}">Utilizador</a> </li>
+                    </ul>
+                </nav>
+            </nav>
+            <div class="busca">
+                <ul>
+                    {% for vendas in latest_vendas_list %}
+
+                {% endfor %}
+                <form action="{% url 'vendas:pesquisa'%}" method="post">
+                    {% csrf_token %}
+                    <p>Procura por marca: <input type="text" name="marca"> <input type="submit" value="Pesquisar" /></p>
+
+                </form>
+                </ul>
+            </div>
+            <br/>
+
+    <br/>
+    <nav class="dados_esquerda_2">
+        <h1>Contacte-nos</h1>
+        <p>Quick Links:</p>
+        <img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="70"
+            height="50">
+        <a href="{% url 'vendas:contact_us' %}">Equipa de vendas (Japan)</a>
+        <br>
+        <img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="70"
+             height="50">
+        <a href="{% url 'vendas:contact_us' %}">Equipa de peças (Japan)</a>
+        <br>
+        <img src="../../static/vendas/imagens/uganda-bg.gif" alt="uganda-bg.pt" width="70"
+             height="50">
+        <a href="{% url 'vendas:contact_us' %}">Uganda</a>
+        <br>
+        <img src="../../static/vendas/imagens/tanzania-bg.gif" alt="tanzania-bg.pt" width="70"
+             height="50">
+        <a href="{% url 'vendas:contact_us' %}">Tanzania</a>
+        <br>
+        <img src="../../static/vendas/imagens/southsudan-bg.gif" alt="southsudan-bg.pt" width="70"
+             height="50">
+        <a href="{% url 'vendas:contact_us' %}">South Sudan</a>
+        <br>
+        <img src="../../static/vendas/imagens/bahamas-bg.gif" alt="bahamas-bg.pt" width="70"
+             height="50">
+        <a href="{% url 'vendas:contact_us' %}">Bahamas</a>
+        <br>
+        <img src="../../static/vendas/imagens/burundi-bg.png" alt="burundi-bg.pt" width="70"
+             height="50">
+        <a href="{% url 'vendas:contact_us' %}">Burundi</a>
+    </nav>
+
+    <br>
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Trust Company Limited - Head Office(Japan)</li><br/><br/><br/>
+        </ul>
+        <strong>Address:</strong>
+        <p>Trust Company Ltd.<br />
+        3/F, Sakae VT Bldg.<br />
+        3-10-32 Nishiki, Naka-ku, 460-0003<br/>
+        Nagoya, JAPAN<br />
+        <br />
+        <strong>Equipa de vendas:</strong>
+        <p>TEL:+81-52-219-9024<br />
+        FAX:+81-52-219-9025<br />
+        EMAIL: sales@JapaneseVehicles.com<br />
+        <br />
+        <table border="0">
+            <tr>
+                <td><p>Charlotte</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/french.gif" alt="french.pt" width="40"
+                            height="20">Français</p></td>
+                <td><p><img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="40"
+                            height="20">Japanese</p></td>
+            </tr>
+            <tr>
+                <td><p>Mickael</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/french.gif" alt="french.pt" width="40"
+                            height="20">Français</p></td>
+            </tr>
+            <tr>
+                <td><p>Juan</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/spanish.gif" alt="spanish.pt" width="40"
+                            height="20">Español</p></td>
+            </tr>
+            <tr>
+                <td><p>Maki</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="40"
+                            height="20">Japanese</p></td>
+            </tr>
+            <tr>
+                <td><p>Momo</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="40"
+                            height="20">Japanese</p></td>
+            </tr>
+            <tr>
+                <td><p>Touki</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="40"
+                            height="20">Japanese</p></td>
+            </tr>
+            <tr>
+                <td><p>Yuki</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/spanish.gif" alt="spanish.pt" width="40"
+                            height="20">Español</p></td>
+                <td><p><img src="../../static/vendas/imagens/japan.gif" alt="japan.pt" width="40"
+                            height="20">Japanese</p></td>
+            </tr>
+            <tr>
+                <td><p>Inna</p></td>
+                <td><p><nav class="call">
+                            <ul>
+                                <li><img src="../../static/vendas/imagens/dropdowncallbutton_16px.png" alt="dropdowncallbutton.pt" width="60" height="20">
+                                    <ul>
+                                        <li>Call</li>
+                                        <li>Chat</li>
+                                    </ul>
+                            </ul>
+                </nav></p></td>
+                <td><p><img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="40"
+                            height="20">English</p></td>
+                <td><p><img src="../../static/vendas/imagens/russian.gif" alt="russian.pt" width="40"
+                            height="20">Русский</p></td>
+            </tr>
+        </table>
+        <br />
+        <strong>Equipa de peças:</strong>
+        <p>TEL:+81-52-219-9358<br />
+        FAX:+81-52-219-9025<br />
+        EMAIL: parts@JapaneseVehicles.com<br />
+        <br/>
+        <img src="../../static/vendas/imagens/group-photo-2016.jpg" alt="group-photo.pt" width="450"
+            height="300">
+    </nav>
+
+    <br>
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Trust Korea Company Limited</li><br/><br/><br/>
+        </ul>
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/s-korea-bg.png" alt="s-korea-bg.pt" width="150"
+                height="100">
+        </nav>
+        <p>Trust Korea Company Limited - Korea Head office<br />
+        Seoul, KOREA<br />
+        Horário de Abertura: Mon-Fri 9:00am-6:00pm<br />
+        Unicamente para os veículos de Coréia<br />
+        <br/>
+        <strong>Park TEL: +82-2-3474-7841</strong>
+        <img src="../../static/vendas/imagens/english.gif" alt="english.pt" width="50"
+         height="30">
+        <a>English</a>
+        <img src="../../static/vendas/imagens/french.gif" alt="french.pt" width="50"
+         height="30">
+        <a>Français</a>
+        <img src="../../static/vendas/imagens/s-korea-bg.png" alt="s-korea-bg.pt" width="50"
+         height="30">
+        <a>Korean</a>
+        <br />
+    </nav>
+
+    <br>
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Postos de Correio habilitados para a venda de veículos do JapaneseVehicles.com</li><br/><br/><br/>
+        </ul>
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/zambia-bg.gif" alt="zambia-bg.pt" width="150"
+                height="100">
+            <br>
+            <img src="../../static/vendas/imagens/zampost-logo-w90.png" alt="zampost-logo-w90.pt" width="150"
+                height="100">
+        </nav>
+        <p>Muitos Postos de Correio da Zambia Postal Services Corporation estão habilitados para a venda de veículos usados ​​do JapaneseVehicles.com.<br />
+        Clique no nome da Área Postal para ver a lista de Postos de Correio habilitados para o serviço nessa área.<br />
+        <br>
+        <a>Lusaka</a>
+        <br>
+        <a>Southern</a>
+        <br>
+        <a>North Western</a>
+        <br>
+        <a>Western</a>
+        <br>
+        <a>Northern</a>
+        <br>
+        <a>Central</a>
+        <br>
+        <a>Eastern</a>
+        <br>
+        <a>Kitwe/Chingola</a>
+        <br>
+        <a>Luapula</a>
+        <br>
+        <a>Ndola/Luanshya</a>
+    </nav>
+
+    <br>
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Kampala (Uganda) Customer Service Center</li><br/><br/><br/>
+        </ul>
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/uganda-bg.gif" alt="uganda-bg.pt" width="150"
+                height="100">
+        </nav>
+        <p>Flitlinks International Limited<br />
+        95, 6th Street, Industrial Area<br />
+        KAS House<br />
+        Kampala, UGANDA<br />
+        TEL: 0417-130-111<br />
+        CELL 1: 0777-032-851<br />
+        CELL 2: 0794-652-862<br />
+        EMAIL: Kampala@JapaneseVehicles.com<br />
+        <br/>
+    </nav>
+
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Dar-es-Salaam (Tanzania) Customer Service Center</li><br/><br/><br/>
+        </ul>
+        <nav class="dados_direita">
+            <img src="../../static/vendas/imagens/tanzania-bg.gif" alt="tanzania-bg.pt" width="150"
+                height="100">
+        </nav>
+        <p>JapaneseVehicles Customer Service Center<br />
+        Lugosa St., Opposite TIGO Offices (Majani ya chai)<br />
+        APEX Tower Blds, 5th Foor<br />
+        Dar-es-Salaam, TANZANIA<br />
+        CELL 1: 0754-277-681<br />
+        CELL 2: 0685-413-380<br />
+        EMAIL: Dar@JapaneseVehicles.com<br />
+        <br/>
+    </nav>
+

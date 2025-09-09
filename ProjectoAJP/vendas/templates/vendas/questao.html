@@ -1,0 +1,119 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css"
+href="{% static 'vendas/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <header class="menu-principalBarraPreta">
+    <main>
+        <nav class="logo">
+        <a href="{% url 'vendas:index' %}"><img src="../../static/vendas/imagens/trust-japanesevehicles-logo.png" alt="JaponeseVechicles.pt"
+        width="100" height="70"></a>
+        </nav>
+
+        <nav class=" redes-sociais">
+            <ul>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/rcss.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                <a href="https://www.facebook.com/JapaneseVehicles"><img src="../../static/vendas/imagens/facebook.jpg" alt="" width="20" height="20"></a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/twiter.png"alt="" width="20" height="20" ></a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/linkedin.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                <a href=""><img src="../../static/vendas/imagens/instagram.png" alt="" width="20" height="20"> </a>
+                </li>
+            <br />
+                <font color="#fff">
+                EMAIL:sales@japcar.com
+                <br/>
+                TEL:+351-222-219-245
+                <br/>
+                <form action="{% url 'vendas:paginalogin' %}" method="post">
+                {% csrf_token %}
+                Já és membro?:<input type="submit" value="Fazer Login"/>
+                </form>
+                <form action="{% url 'vendas:paginaregisto' %}" method="post">
+                {% csrf_token %}
+                Não és membro?:<input type="submit" value="Fazer Registo"/>
+                </form>
+
+                {% if sucesso %}
+                <font color="#fff">
+                <p>{{sucesso}}</p>
+                {% endif %}
+                </font>
+                </font>
+            </ul>
+        </nav>
+    </main>
+    </header>
+    <br>
+
+        <nav class="menus">
+            <nav class = "menu">
+                <ul>
+                    <li><a href="{% url 'vendas:index' %}">HOME</a></li>
+                    <li><a href="{% url 'vendas:StoqueCarro' %}">Stocklist</a> </li>
+                    <li><a href="{% url 'vendas:about_us' %}">About us</a> </li>
+                    <li><a href="{% url 'vendas:how_to_buy' %}">How to buy</a> </li>
+                    <li><a href="{% url 'vendas:quality' %}">Quality</a> </li>
+                    <li><a href="{% url 'vendas:contact_us' %}">Contact us</a> </li>
+                    <li><a href="{% url 'vendas:Administrador' %}">Administrador</a> </li>
+                    <li><a href="{% url 'vendas:utilizador' %}">Utilizador</a> </li>
+
+
+                </ul>
+            </nav>
+        </nav>
+
+        <nav class="busca">
+                <ul>
+                    {% for vendas in latest_vendas_list %}
+
+                    {% endfor %}
+                    <form action="{% url 'vendas:pesquisa'%}" method="post">
+                    {% csrf_token %}
+                    <p>Procura por marca: <input type="text" name="marca"> <input type="submit" value="Pesquisar" /></p>
+
+                    </form>
+                </ul>
+        </nav>
+        <br/>
+        <br/>
+
+    <form name="input" action="{% url 'vendas:guardarQ' %}" method="post">
+        {% csrf_token %}
+        <p>Questao: <input type="text" name="questaos"></p>
+        <input type="submit" value="Gravar questao e voltar a lista" />
+    </form>
+
+     {% for  p in perguntas %}
+       {{ p.questao_texto }}
+        {{p.resposta }}
+
+
+     <br>
+
+
+
+    <form  action="{% url 'vendas:resposta' p.id %}" method="post">
+        {% csrf_token %}
+        <p>Resposta: <input type="text" name="resposta"></p>
+        <input type="submit" value="Gravar resposta e voltar a lista" />
+        {% endfor %}
+
+    </form>
+
+
+
+
+
+
+
+

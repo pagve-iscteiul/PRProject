@@ -1,0 +1,76 @@
+<style type="text/css">
+            body {background-color:lightBlue;}
+            p {color:blue;}
+
+
+            form {
+              width:300px;
+              margin: 20px auto;
+            }
+
+            input {
+              border:1px solid #ccc;
+              font-size:20px;
+              width:300px;
+              min-height:30px;
+              display:block;
+              margin-bottom:15px;
+              margin-top:5px;
+              outline: none;
+            }
+
+            input[type=submit] {
+              background:none;
+              padding:10px;
+            }
+
+</style>
+
+    <footer>
+        <p align="center">
+            DADOS DO UTILIZADOR
+        </p>
+    </footer>
+        <form action="{% url 'vendas:InformacaoUtilizador' %}" method="post">
+            {% csrf_token %}
+
+          <label>Nome:</label>
+          <input type="text" id="Nome" name="Nome" required>
+
+          <label>SobreNome:</label>
+          <input type="text" id="SobreNome" name="SobreNome" required>
+
+          <label>Email address:</label>
+          <input type="text" id="email_addr" name="email_addr" required>
+
+          <label>Morada:</label>
+          <input type="text" id="Morada" name="Morada" required>
+
+          <label>Telefone:</label>
+          <input type="text" id="Telefone" name="Telefone" required>
+
+
+
+
+                    <p>User_name: <input type="text" name="username">
+                    <p>Password: <input type="password" name="password">
+                    <br>
+                    <input type="submit" value="Gos" /></p>
+
+        </form>
+
+            {% if error_message %}
+            <p>{{error_message}}</p>
+            {% endif %}
+
+            {% if error_messages %}
+            <p>{{error_messages}}</p>
+                    {% endif %}
+
+            {% if notificacao %}
+            <p>{{notificacao}}</p>
+            {% endif %}
+
+            {% if sucesso %}
+            <p>{{sucesso}}</p>
+            {% endif %}

@@ -1,0 +1,56 @@
+
+<style type="text/css">
+            body {background-color:lightBlue;}
+            p {color:blue;}
+
+
+            form {
+              width:300px;
+              margin: 20px auto;
+            }
+
+            input {
+              border:1px solid #ccc;
+              font-size:20px;
+              width:300px;
+              min-height:30px;
+              display:block;
+              margin-bottom:15px;
+              margin-top:5px;
+              outline: none;
+            }
+
+            input[type=submit] {
+              background:none;
+              padding:10px;
+            }
+
+</style>
+<form action="{% url 'vendas:loginview'%}" method="post">
+                 {% csrf_token %}
+                    <p>User_name: <input type="text" name="username">
+                    <p>Password: <input type="password" name="password">
+                    <br>
+                    <input type="submit" value="Login" /></p>
+             </form>
+
+            <form action="{% url 'vendas:logoutview' %}" method="post">
+                 {% csrf_token %}
+                    <input type="submit" value="Logout" /></p>
+             </form>
+
+            {% if error_message %}
+            <p>{{error_message}}</p>
+            {% endif %}
+
+            {% if error_messages %}
+            <p>{{error_messages}}</p>
+                    {% endif %}
+
+            {% if notificacao %}
+            <p>{{notificacao}}</p>
+            {% endif %}
+
+            {% if sucesso %}
+            <p>{{sucesso}}</p>
+            {% endif %}

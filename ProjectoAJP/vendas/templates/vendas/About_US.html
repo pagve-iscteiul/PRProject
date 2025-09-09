@@ -1,0 +1,251 @@
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css"
+      href="{% static 'vendas/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <header class="menu-principalBarraPreta">
+        <main>
+        <nav class="logo">
+            <a href="{% url 'vendas:index' %}"><img src="../../static/vendas/imagens/trust-japanesevehicles-logo.png" alt="JaponeseVechicles.pt"
+                                                    width="100" height="70"></a>
+        </nav>
+        <nav class=" redes-sociais">
+            <ul>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/rcss.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/JapaneseVehicles"><img src="../../static/vendas/imagens/facebook.jpg" alt="" width="20" height="20"></a>
+                </li>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/twiter.png"alt="" width="20" height="20" ></a>
+                </li>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/linkedin.png" alt="" width="20" height="20"> </a>
+                </li>
+                <li>
+                    <a href=""><img src="../../static/vendas/imagens/instagram.png" alt="" width="20" height="20"> </a>
+                </li>
+                <br />
+                <font color="#fff">
+                EMAIL:sales@japcar.com
+                <br/>
+                TEL:+351-222-219-245
+                <br/>
+                <form action="{% url 'vendas:paginalogin' %}" method="post">
+                    {% csrf_token %}
+                    Já és membro?:<input type="submit" value="Fazer Login"/>
+                </form>
+                <form action="{% url 'vendas:paginaregisto' %}" method="post">
+                    {% csrf_token %}
+                    Não és membro?:<input type="submit" value="Fazer Registo"/>
+                </form>
+
+                    {% if sucesso %}
+                    <font color="#fff">
+                    <p>{{sucesso}}</p>
+                    {% endif %}
+                    </font>
+                </font>
+            </ul>
+        </nav>
+    </main>
+    </header>
+        <br>
+
+    <nav class="menus">
+                <nav class = "menu">
+                    <ul>
+                        <li><a href="{% url 'vendas:index' %}">HOME</a></li>
+                        <li><a href="{% url 'vendas:StoqueCarro' %}">Stocklist</a> </li>
+                        <li><a href="{% url 'vendas:about_us' %}">About us</a> </li>
+                        <li><a href="{% url 'vendas:how_to_buy' %}">How to buy</a> </li>
+                        <li><a href="{% url 'vendas:quality' %}">Quality</a> </li>
+                        <li><a href="{% url 'vendas:contact_us' %}">Contact us</a> </li>
+                        <li><a href="{% url 'vendas:Administrador' %}">Administrador</a> </li>
+                         <li><a href="{% url 'vendas:utilizador' %}">Utilizador</a> </li>
+                    </ul>
+                </nav>
+            </nav>
+            <nav class="busca">
+                <ul>
+                    {% for vendas in latest_vendas_list %}
+
+                {% endfor %}
+                <p><form action="{% url 'vendas:pesquisa'%}" method="post">
+                    {% csrf_token %}
+                    <p>Procura por marca: <input type="text" name="marca"> <input type="submit" value="Pesquisar" /></p>
+
+                </form></p>
+                </ul>
+            </nav>
+            <br/>
+
+    <br/>
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>JapaneseVehicles.com - Trust Company Limited - Quem Somos</li><br/><br/>
+        </ul>
+        <nav class="dados_direita">
+            <ul>
+                <img src="../../static/vendas/imagens/trust-japanesevehicles-logo.png" alt="JapaneseVehicles.pt" width="200"
+                    height="200">
+            </ul>
+        </nav>
+        <nav class="dados_direita">
+            <ul>
+                <img src="../../static/vendas/imagens/TokyoSE.gif" alt="TokyoSE.pt" width="50"
+                    height="50">
+                <figcaption>Listed on the Tokyo Stock Exchange.<br />
+                    Code: 3347</figcaption>
+                <img src="../../static/vendas/imagens/NagoyaCC.gif" alt="NagoyaCC.pt" width="50"
+                    height="50">
+                <figcaption>Members of Nagoya Chamber of Commerce. No.<br />
+                    0534412-07864</figcaption>
+                <img src="../../static/vendas/imagens/JUMVEA.gif" alt="JUMVEA.pt" width="50"
+                    height="50">
+                <figcaption>Member of Japan Used Motor Vehicle Exporters Association.<br />
+                    No. 000274</figcaption>
+            </ul>
+        </nav>
+        <p>Desde 1988, a vender e exportar carros usados Japoneses a preços acessíveis<br />
+        para mais de 150 países por todo o mundo.<br />
+        Como um dos maiores exportadores de veículos em segunda mão no Japão, oferecemos-lhe<br />
+        uma gama de modelos e marcas, inspeccionados e com manutenção profissional.<br />
+        É fácil tornar-se num dos nossos clientes satisfeitos!</p>
+        <br/>
+            <li>1000 veículos em stock: descubra o carro certo para si.</li>
+            <li>Assistência multi-idioma directamente do Japão: é fácil comunicar conosco.</li>
+            <li>Despachantes qualificados e com experiência: receba o seu carro sem problemas em mais de 300 destinos por todo o mundo.</li>
+            <li>Manutenção profissional do veículo e um sistema fiável de classificação: compre o seu carro com confiança.</li>
+            <li>Serviço de peças auto: fácil encomenda de peças sobresselentes para o seu veículo.</li>
+            <li>Perto de si: Centros locais de serviço ao cliente e opções de entrega internas.</li>
+        <br>
+    </nav>
+    <br>
+    <br>
+
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Há quatro perguntas que desejará fazer sobre JapaneseVehicles.com</li><br/><br/><br/>
+        </ul>
+        <nav class="dados_direita">
+            <ul>
+                <img src="../../static/vendas/imagens/YardVehicles.jpg" alt="YardVehicles.pt" width="200"
+                height="130">
+                <img src="../../static/vendas/imagens/Destinationsmap.gif" alt="Destinationsmap.pt" width="200"
+                height="130">
+            </ul>
+        </nav>
+         <strong>Quantos carros usados vende todos os anos?</strong>
+            <br />
+            No ano passado, vendemos mais de 8000 carros usados.
+        </p>
+            <p>
+                <strong>Quantas pessoas trabalham na nossa empresa?</strong>
+                <br />
+                A nossa empresa no Japão é composta por 49 pessoas.
+            </p>
+            <p>
+            <strong>Quantos veículos tem no seu espaço?</strong>
+            <br />
+            Temos mais de 2000 veículos distribuídos por 3 espaços diferentes em Nagoya, Kobe e Tokyo.
+            </p>
+            <p>
+                <strong>Quais são os principais destinos de venda dos veículos?</strong>
+                <br />
+                60% dos nosso veículos em segunda mão destinam-se a países do Este e Sul de África.
+                Os restantes estão divididos entre as Caraíbas, <br/>
+                Ilhas do Pacífico, Europa e Ásia.
+            </p>
+        <br>
+    </nav>
+    <br>
+    <br>
+
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Colaboração com a Zambia Postal Services Corporation</li>
+        </ul>
+        <br />
+        <br/>
+      <nav class="dados_direita">
+          <ul>
+              <img src="../../static/vendas/imagens/zampost-Logo.png" alt="zampost.pt" width="200"
+                    height="150">
+          </ul>
+      </nav>
+      <p>
+        Trust Company Ltd. colabora com a
+          <strong>Zambia Postal Services Corporation </strong><br/>
+          para pagamentos e venda de veículos usados ​​diretamente para
+          Postos da ZamPost.<br />
+      </p>
+        <strong>Principais serviços:</strong>
+        <br />
+        Pagamento seguro e rápido para faturas de JapaneseVehicles.com em qualquer Posto ZamPost na Zâmbia.<br />
+        Compra direta de veículos usados de qualidade ​​a partir de JapaneseVehicles.com nos <br />
+        Postos ZamPost habilitados para este serviço.<br />
+    </nav>
+    <br>
+    <br>
+
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>Trust Company Limited - Negócios relacionados</li>
+        </ul>
+        <br/>
+        <br/>
+        <nav class="dados_direita">
+          <ul>
+              <img src="../../static/vendas/imagens/South-africa-map-3.png" alt="South-africa.pt" width="200"
+                       height="150">
+              <img src="../../static/vendas/imagens/J-net-logo.png" alt="J-net.pt" width="200"
+                       height="100">
+          </ul>
+        </nav>
+        <p>
+            <strong>Para além do nosso negócio principal, de exportação de carros</strong><br/>
+            <strong>usados, estamos a expandir as nossas actividades
+                <br/>
+                no estrangeiro e no Japão.</strong>
+        </p>
+        <p>
+            <strong>Concessionários de automóveis na África do Sul</strong>
+            <br />
+            As nossas filiais na África do Sul gerem concessionários de <br />
+            automóveis para a Suzuki, Peugeot, Alfa Romeo e Fiat.
+        </p>
+        <p>
+            <strong>J-net - Aluguer de viaturas no Japão</strong>
+            <br />
+            J-net: uma companhia japonesa de aluguer de viaturas, com mais de<br />
+            100 lojas e uma frota de aproximadamente 10,000 veículos.
+    </nav>
+    <br>
+    <br>
+
+    <nav class="dados_esquerda_2">
+        <ul>
+            <li>História da JapaneseVehicles.com - Trust Company Limited</li>
+        </ul>
+        <br/>
+        <br/>
+        <nav class="dados_direita">
+          <ul>
+              <img src="../../static/vendas/imagens/TrustHQ.jpg" alt="TrustHQ.pt" width="200"
+                    height="200">
+          </ul>
+        </nav>
+        <p>A Trust Company Limited foi fundada em Dezembro de 1988,<br />
+            preenchendo a procura global para veículos com volante à direita.<br />
+            Fomos a primeira empresa a exportar carros Japoneses em segunda<br />
+            mão em grandes quantidades para locais como África,<br />
+            Ilhas do Pacífico, Caraíbas, Nova Zelândia, Europa, Rússia, Sudeste Asiático e Américas.<br />
+            Em Novembro de 2004, graças ao suporte contínuo dos nossos<br />
+            valiosos clientes, conseguimos entrar na<br />
+            Bolsa de Valores de Tóquio.<br/>
+        </p>
+        <p>Deseja saber mais? Visite a nossa página institucional.</p>
+    </nav>

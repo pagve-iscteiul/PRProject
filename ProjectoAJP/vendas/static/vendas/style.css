@@ -1,0 +1,215 @@
+
+        li a { color: green;
+        }
+        .body{
+            background: black url("imagens/trust-japanesevehicles-logo.png.png")
+            no-repeat left top;
+        }
+        .menus ul{
+           width:70%;
+           height:3%;
+        }
+        .menu ul li{
+            display: inline-block;
+            color: black;
+            margin-top:0;
+
+        }
+        .menu ul li a{
+            color: #6da3f9;
+            text-decoration: nano;
+            font-size: 120%;
+            text-transform: uppercase;
+        }
+        .menu{
+            width:100%;
+            float:left;
+        }
+        .menu ul li:hover{
+            background-color: #2c69cc;
+        }
+        .menu ul{
+            padding:0;
+        }
+        .busca{
+            margin-height:-100%;
+            float: right;
+            margin-right:0%;
+            margin-top:-4%;
+        }
+        .col-100{
+           margin-left:15px;
+           display: inline-block;
+           float: center;
+           list-style: none;
+        }
+        .col-100{
+           width:100%;
+           float: right;
+           height:90%;
+        }
+         body{
+           width:100%;
+           height:128%;
+           margin: 0 auto
+        }
+        .menu-principalBarraPreta{
+           width:100%;
+           background-color:black;
+           height:16%;
+        }
+        .main{
+           margin: 6 auto;
+           width: 980px;
+           position: relative;
+        }
+        .logo{
+           float: left;
+           padding:16px;
+           width:75%;
+        }
+        .redes-sociais ul li{
+           margin-left:15px;
+           display: inline-block;
+           float: left;
+           list-style: none;
+        }
+        .redes-sociais{
+           width:20%;
+           float: right;
+        }
+        .tabelacarros li{
+        background-color: #6da3f9;
+           color: white;
+           float: left;
+           height:100%;
+           display: inline-block;
+           text-align: center;
+           line-height: 10px;
+           font-size: 25px;
+        }
+        .spare_parts ul li{
+            background-color: #6da3f9;
+            color: white;
+            float: left;
+            width: 750px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            font-size: 25px;
+        }
+        .dados_esquerda_2 ul li{
+           background-color: #6da3f9;
+           color: white;
+           float: right;
+
+
+           display: inline-block;
+           text-align: center;
+           line-height: 40px;
+           font-size: 25px;
+           width: 103%;
+        }
+        .dados_direita ul li{
+           height:100%;
+           float: left;
+           margin-left: 15px;
+           margin-top:0;
+           display: inline-block;
+           float: right;
+           list-style: none;
+        }
+        .dados_direita{
+           width:20%;
+           float: right;
+        }
+        .shipping_methods ul li{
+            background-color: gray;
+            color: white;
+            float: left;
+            width: 750px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            font-size: 25px;
+        }
+         .contact_us ul li{
+            background-color: #6da3f9;
+            color: white;
+            float: left;
+            width: 850px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            font-size: 25px;
+        }
+        .call ul li{
+            background-color: white;
+            color: blue;
+            float: left;
+            width: 80px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            font-size: 25px;
+        }
+        .call ul li:hover{
+            background-color: #6da3f9;
+        }
+        .call ul{
+            padding: 0;
+        }
+        .call ul ul{
+            display: none;
+        }
+        .call ul li:hover > ul{
+            display: block;
+        }
+        .quality ul li{
+            background-color: #6da3f9;
+            color: white;
+            float: left;
+            width: 750px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            font-size: 25px;
+        }
+        .dados_centro ul li{
+           margin-left:15px;
+           display: inline-block;
+           float: contour;
+           list-style: none;
+        }
+        .dados_centro{
+           width:20%;
+           float: contour;
+        }
+        .Papel-FundoLetra h1{
+
+         text-align: center;
+          margin-top:200;
+        }
+        .Papel-FundoLetra{
+         width: 100%;
+         height: 100%;
+         float: right;
+
+         background-image: url("../../static/vendas/imagens/wallpaper-tron.jpg")
+        }
+        .tabelautilizadores li{
+        background-color: #6da3f9;
+           color: white;
+           float: left;
+           height:2%;
+           display: inline-block;
+           text-align: center;
+           line-height: 10px;
+           font-size: 25px;
+        }
+

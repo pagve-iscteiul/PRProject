@@ -1,0 +1,64 @@
+
+    <style type="text/css">
+            body {background-color:lightBlue;}
+            p {color:blue;}
+
+
+form {
+  width:300px;
+  margin: 20px auto;
+}
+
+input {
+  border:1px solid #ccc;
+  font-size:20px;
+  width:300px;
+  min-height:30px;
+  display:block;
+  margin-bottom:15px;
+  margin-top:5px;
+  outline: none;
+}
+
+input[type=submit] {
+  background:none;
+  padding:10px;
+}
+    </style>
+    <footer>
+        <p align="center">
+            DADOS DE COMPRA
+        </p>
+    </footer>
+
+        {{ carro.marca }}
+    <p><img src="../../static/vendas/imagens/{{carro.imagem}}"
+                            width="300" height="200"></p>
+
+        <form action="{% url 'vendas:pagamentoRemover' carro.id %}" method="post">
+            {% csrf_token %}
+          <label>Nome:</label>
+          <input type="text" id="Nome" Nome="Nome" placeholder=" " required>
+
+          <label>SobreNome:</label>
+          <input type="SobreNome" id="SobreNome" name="SobreNome" required
+           oninput="check(this)">
+          <label>Email address:</label>
+          <input type="email" id="email_addr" name="email_addr" required>
+
+          <label>Telefone:</label>
+          <input type="Telefone" id="Telefone" name="Telefone" required
+           oninput="check(this)">
+
+          <label>País:</label>
+          <input type="" id="Pais" name="País" required>
+
+          <label>Morada:</label>
+          <input type="Morada" id="Morada" name="Morada" required>
+
+            <label>Matricula: {{carro.matricula}} </label>
+
+
+             <p> <input type="submit" value="PAGAMENTO" /></p>
+    </form>
+

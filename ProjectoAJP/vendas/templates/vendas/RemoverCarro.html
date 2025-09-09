@@ -1,0 +1,42 @@
+<style type="text/css">
+            body {background-color:lightBlue;}
+            p {color:blue;}
+
+
+form {
+  width:300px;
+  margin: 20px auto;
+}
+
+input {
+  border:1px solid #ccc;
+  font-size:20px;
+  width:300px;
+  min-height:30px;
+  display:block;
+  margin-bottom:15px;
+  margin-top:5px;
+  outline: none;
+}
+
+input[type=submit] {
+  background:none;
+  padding:10px;
+}
+</style>
+
+     <footer>
+        <p align="center">
+            DADOS DO CARRO
+        </p>
+
+    </footer>
+        <form name="input" action="{% url 'vendas:apagarCarro'%}" method="post">
+            {% csrf_token %}
+
+         <label>Matricula:</label>
+          <input type="matricula" id="matricula" name="matricula" required>
+
+            <input type="submit" value="Gravar Carro e voltar a lista" />
+    </form>
+
